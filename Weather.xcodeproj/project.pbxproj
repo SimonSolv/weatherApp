@@ -14,10 +14,16 @@
 		CE9701672933693C006C61BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9701662933693C006C61BE /* Assets.xcassets */; };
 		CE97016A2933693C006C61BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9701682933693C006C61BE /* LaunchScreen.storyboard */; };
 		CE97017429336C26006C61BE /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97017329336C26006C61BE /* GeneralViewController.swift */; };
-		CE9701782933811A006C61BE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9701772933811A006C61BE /* DataModel.swift */; };
+		CE9701782933811A006C61BE /* DayDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9701772933811A006C61BE /* DayDataModel.swift */; };
 		CE97017B2933882D006C61BE /* CitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97017A2933882D006C61BE /* CitiesTableViewCell.swift */; };
 		CE97017E293388AE006C61BE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE97017D293388AE006C61BE /* SnapKit */; };
 		CE97018029339AC3006C61BE /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97017F29339AC3006C61BE /* AddCityViewController.swift */; };
+		CE97018229350E6D006C61BE /* GeoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018129350E6D006C61BE /* GeoDataModel.swift */; };
+		CE97018429350E99006C61BE /* HourlyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018329350E99006C61BE /* HourlyDataModel.swift */; };
+		CE97018629350EA8006C61BE /* DailyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018529350EA8006C61BE /* DailyDataModel.swift */; };
+		CE97018829352911006C61BE /* WeatherCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018729352911006C61BE /* WeatherCardView.swift */; };
+		CE97018B2935399A006C61BE /* CustomClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018A2935399A006C61BE /* CustomClasses.swift */; };
+		CE97018D2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018C2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,9 +36,15 @@
 		CE9701692933693C006C61BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE97016B2933693C006C61BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE97017329336C26006C61BE /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
-		CE9701772933811A006C61BE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		CE9701772933811A006C61BE /* DayDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDataModel.swift; sourceTree = "<group>"; };
 		CE97017A2933882D006C61BE /* CitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewCell.swift; sourceTree = "<group>"; };
 		CE97017F29339AC3006C61BE /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
+		CE97018129350E6D006C61BE /* GeoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeoDataModel.swift; path = ../../../../../../../Applications/GeoDataModel.swift; sourceTree = "<group>"; };
+		CE97018329350E99006C61BE /* HourlyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyDataModel.swift; sourceTree = "<group>"; };
+		CE97018529350EA8006C61BE /* DailyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDataModel.swift; sourceTree = "<group>"; };
+		CE97018729352911006C61BE /* WeatherCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardView.swift; sourceTree = "<group>"; };
+		CE97018A2935399A006C61BE /* CustomClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClasses.swift; sourceTree = "<group>"; };
+		CE97018C2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherCardTableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,7 @@
 		CE9701592933693A006C61BE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				CE97018929353971006C61BE /* CustomUI */,
 				CE97015C2933693A006C61BE /* SceneDelegate.swift */,
 				CE97017529336C2C006C61BE /* View */,
 				CE97017629338105006C61BE /* Model */,
@@ -101,6 +114,8 @@
 				CE97017929338805006C61BE /* Cells */,
 				CE97017329336C26006C61BE /* GeneralViewController.swift */,
 				CE97017F29339AC3006C61BE /* AddCityViewController.swift */,
+				CE97018729352911006C61BE /* WeatherCardView.swift */,
+				CE97018C2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,7 +123,10 @@
 		CE97017629338105006C61BE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE9701772933811A006C61BE /* DataModel.swift */,
+				CE9701772933811A006C61BE /* DayDataModel.swift */,
+				CE97018129350E6D006C61BE /* GeoDataModel.swift */,
+				CE97018329350E99006C61BE /* HourlyDataModel.swift */,
+				CE97018529350EA8006C61BE /* DailyDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,6 +137,14 @@
 				CE97017A2933882D006C61BE /* CitiesTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CE97018929353971006C61BE /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				CE97018A2935399A006C61BE /* CustomClasses.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,13 +223,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE97018629350EA8006C61BE /* DailyDataModel.swift in Sources */,
+				CE97018D2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift in Sources */,
 				CE9701652933693A006C61BE /* Weather.xcdatamodeld in Sources */,
-				CE9701782933811A006C61BE /* DataModel.swift in Sources */,
+				CE9701782933811A006C61BE /* DayDataModel.swift in Sources */,
 				CE97015F2933693A006C61BE /* ViewController.swift in Sources */,
 				CE97017429336C26006C61BE /* GeneralViewController.swift in Sources */,
+				CE97018B2935399A006C61BE /* CustomClasses.swift in Sources */,
 				CE97015B2933693A006C61BE /* AppDelegate.swift in Sources */,
 				CE97015D2933693A006C61BE /* SceneDelegate.swift in Sources */,
+				CE97018429350E99006C61BE /* HourlyDataModel.swift in Sources */,
+				CE97018229350E6D006C61BE /* GeoDataModel.swift in Sources */,
 				CE97017B2933882D006C61BE /* CitiesTableViewCell.swift in Sources */,
+				CE97018829352911006C61BE /* WeatherCardView.swift in Sources */,
 				CE97018029339AC3006C61BE /* AddCityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

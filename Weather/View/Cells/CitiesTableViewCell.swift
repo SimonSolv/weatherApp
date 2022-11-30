@@ -13,7 +13,7 @@ class CitiesTableViewCell: UITableViewCell {
     
     var city: City? {
         didSet {
-            self.cityNameLabel.text = city!.name! + " " + "\(city!.lon!)" + " " + "\(city!.lat!)"
+            self.cityNameLabel.text = city!.name + " " + "\(city!.lon)" + " " + "\(city!.lat)"
             self.cityCountryLabel.text = city?.country
         }
     }
@@ -78,13 +78,13 @@ class CitiesTableViewCell: UITableViewCell {
             make.top.equalTo(snp.top)
             make.bottom.equalTo(snp.bottom)
             make.leading.equalTo(snp.leading)
-            make.trailing.equalTo(snp.trailing).offset(-50)
+            make.trailing.equalTo(snp.trailing)
         }
         
         cityCountryLabel.snp.makeConstraints { (make) in
             make.top.equalTo(snp.top)
             make.bottom.equalTo(snp.bottom)
-            make.leading.equalTo(cityNameLabel.snp.trailing).offset(5)
+            make.width.equalTo(20)
             make.trailing.equalTo(snp.trailing)
         }
     }

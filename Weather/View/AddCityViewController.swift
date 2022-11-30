@@ -54,58 +54,11 @@ class AddCityViewController: UITableViewController, UISearchBarDelegate {
       //  searchController.disablesAutomaticKeyboardDismissal = true
         //searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
+        searchController.becomeFirstResponder()
     }
     
-    private func urlComponents(city: String) -> URLComponents {
-        let limit = 5
-        let cityName = city
-        
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.openweathermap.org"
-        urlComponents.path = "/geo/1.0/direct"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "q", value: "\(cityName)"),
-            URLQueryItem(name: "limit", value: "\(limit)"),
-            URLQueryItem(name: "appid", value: "813fe141065e9cb880c0c124702b622b"),
-        ]
-        return urlComponents
-    }
-    
-    func requestGeo(city: String, completion: ((_ cities: [City]? ) -> Void)?) {
-        let components = self.urlComponents(city: city)
-        let url = components.url
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url!, completionHandler: { data, responce, error in
-            if let error = error {
-                print(error.localizedDescription)
-                completion?(nil)
-                return
-            }
-            
-            if (responce as! HTTPURLResponse).statusCode != 200 {
-                print ("StstusCode = \((responce as! HTTPURLResponse).statusCode)")
-                completion?(nil)
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                completion?(nil)
-                return
-            }
-            
-            do {
-                let answer = try JSONDecoder().decode([City].self, from: data)
-                completion?(answer)
-                return
-            } catch {
-                print(error)
-            }
-        })
-        task.resume()
-    }
-    
+    public var completion: ((City?) -> Void)?
+
     // MARK: Table view setup
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,14 +73,12 @@ class AddCityViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.newCity = cities[indexPath.row]
-        print("Selected \(newCity?.name!)")
+        
+        completion?(cities[indexPath.row])
+        
+        print("Selected \(String(describing: cities[indexPath.row]))")
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let share = UIActivityViewController(activityItems: [jokes[indexPath.section].text], applicationActivities: nil)
-//        present(share, animated: true)
-//    }
+
 }
 

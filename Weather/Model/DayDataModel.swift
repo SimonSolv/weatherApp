@@ -7,23 +7,11 @@
 
 import Foundation
 
-struct City: Codable {
-    var name: String?
-    var lat: Float?
-    var lon: Float?
-    var country: String?
-    var local_names: LocalName?
-}
-
-struct LocalName: Codable {
-    var ru: String?
-}
-
 struct CityWeather: Codable {
     var coord: Coord?
     var weather: [Weather]?
     var base: String?
-    var main: Main?
+    var main: Main
     var visibility: Int?
     var wind: Wind?
     var clouds: Clouds?
@@ -76,12 +64,12 @@ struct Weather: Codable {
 }
 
 struct Main: Codable {
-    var temp: Float?
-    var feels_like: Float?
-    var temp_min: Float?
-    var temp_max: Float?
-    var pressure: Int?
-    var humidity: Int?
+    var temp: Float
+    var feels_like: Float
+    var temp_min: Float
+    var temp_max: Float
+    var pressure: Int
+    var humidity: Int
     var sea_level: Int?
     var grnd_level: Int?
 }
@@ -94,6 +82,55 @@ struct Wind: Codable {
 
 struct Clouds: Codable {
   var all: Int?
+}
+
+func requestDayWeather(city: City, completion: ((_ weather: CityWeather? ) -> Void)?) {
+    let components = dayWeatherurlComponents(city: city)
+    let url = components.url
+    let session = URLSession(configuration: .default)
+    let task = session.dataTask(with: url!, completionHandler: { data, responce, error in
+        if let error = error {
+            print(error.localizedDescription)
+            completion?(nil)
+            return
+        }
+        
+        if (responce as! HTTPURLResponse).statusCode != 200 {
+            print ("StstusCode = \((responce as! HTTPURLResponse).statusCode)")
+            completion?(nil)
+            return
+        }
+        
+        guard let data = data else {
+            print("No data received")
+            completion?(nil)
+            return
+        }
+        
+        do {
+            let answer = try JSONDecoder().decode(CityWeather.self, from: data)
+            completion?(answer)
+            return
+        } catch {
+            print(error)
+        }
+    })
+    task.resume()
+}
+
+private func dayWeatherurlComponents(city: City) -> URLComponents {
+    var urlComponents = URLComponents()
+    urlComponents.scheme = "https"
+    urlComponents.host = "api.openweathermap.org"
+    urlComponents.path = "/data/2.5/weather"
+    urlComponents.queryItems = [
+        URLQueryItem(name: "lat", value: "\(city.lat)"),
+        URLQueryItem(name: "lon", value: "\(city.lon)"),
+        URLQueryItem(name: "appid", value: "813fe141065e9cb880c0c124702b622b"),
+        URLQueryItem(name: "units", value: "metric"),
+        URLQueryItem(name: "lang", value: "ru"),
+    ]
+    return urlComponents
 }
 /*
  
