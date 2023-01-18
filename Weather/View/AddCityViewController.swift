@@ -10,12 +10,10 @@ import UIKit
 class AddCityViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+        
         requestGeo(city: searchController.searchBar.text!, completion: { data in
             guard let data = data else {
-                let city = City(name: "ERROR: No cities found", lat: 0, lon: 0, country: "none")
-                var answer: [City] = []
-                answer.append(city)
-                self.cities = answer
+                print("Cities not found")
                 return
             }
             
@@ -46,6 +44,9 @@ class AddCityViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Добавить город"
+        tableView.layer.cornerRadius = 5
+        tableView.clipsToBounds = true
+        self.navigationController?.navigationBar.backgroundColor = .white
         view.backgroundColor = .systemGray6
         tableView.register(CitiesTableViewCell.self, forCellReuseIdentifier: CitiesTableViewCell.identifier)
 
@@ -54,7 +55,15 @@ class AddCityViewController: UITableViewController, UISearchBarDelegate {
       //  searchController.disablesAutomaticKeyboardDismissal = true
         //searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
-        searchController.becomeFirstResponder()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.async {
+            self.searchController.isActive = true
+            self.searchController.searchBar.becomeFirstResponder()
+        }
     }
     
     public var completion: ((City?) -> Void)?
@@ -67,18 +76,22 @@ class AddCityViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CitiesTableViewCell.identifier, for: indexPath) as! CitiesTableViewCell
-        
         cell.city = cities[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         completion?(cities[indexPath.row])
-        
-        print("Selected \(String(describing: cities[indexPath.row]))")
         self.navigationController?.popToRootViewController(animated: true)
     }
 
 }
 
+extension AddCityViewController: UISearchControllerDelegate {
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        DispatchQueue.main.async {
+            searchController.searchBar.becomeFirstResponder()
+        }
+    }
+}

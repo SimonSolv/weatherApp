@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0F68022975B20C007B007F /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F68012975B20C007B007F /* StartupViewController.swift */; };
+		CE0F68042975B9A6007B007F /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE0F68032975B97D007B007F /* Rubik-Medium.ttf */; };
 		CE97015B2933693A006C61BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97015A2933693A006C61BE /* AppDelegate.swift */; };
 		CE97015D2933693A006C61BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97015C2933693A006C61BE /* SceneDelegate.swift */; };
 		CE97015F2933693A006C61BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97015E2933693A006C61BE /* ViewController.swift */; };
@@ -24,9 +26,21 @@
 		CE97018829352911006C61BE /* WeatherCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018729352911006C61BE /* WeatherCardView.swift */; };
 		CE97018B2935399A006C61BE /* CustomClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018A2935399A006C61BE /* CustomClasses.swift */; };
 		CE97018D2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018C2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift */; };
+		CE97018F293918A5006C61BE /* WeatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97018E293918A5006C61BE /* WeatherApi.swift */; };
+		CE970191293C8B1C006C61BE /* HourlyWeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970190293C8B1C006C61BE /* HourlyWeatherCollectionViewCell.swift */; };
+		CE970193293C90FB006C61BE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970192293C90FB006C61BE /* DateFormatter.swift */; };
+		CE970195293C95D7006C61BE /* DataStyleFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970194293C95D7006C61BE /* DataStyleFormatter.swift */; };
+		CE970197293C9C2C006C61BE /* HourlyWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970196293C9C2C006C61BE /* HourlyWeatherTableViewCell.swift */; };
+		CE970199293D02A7006C61BE /* RapidApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970198293D02A7006C61BE /* RapidApi.swift */; };
+		CE97019B293D1575006C61BE /* AccuGeoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97019A293D1574006C61BE /* AccuGeoDataModel.swift */; };
+		CE97019D293FA2E7006C61BE /* AccuWeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97019C293FA2E7006C61BE /* AccuWeatherDataModel.swift */; };
+		CE97019F293FB2AA006C61BE /* AccuDayDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97019E293FB2AA006C61BE /* AccuDayDataModel.swift */; };
+		CE9701A22940F808006C61BE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE9701A12940F808006C61BE /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0F68012975B20C007B007F /* StartupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
+		CE0F68032975B97D007B007F /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		CE9701572933693A006C61BE /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE97015A2933693A006C61BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE97015C2933693A006C61BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +59,15 @@
 		CE97018729352911006C61BE /* WeatherCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardView.swift; sourceTree = "<group>"; };
 		CE97018A2935399A006C61BE /* CustomClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClasses.swift; sourceTree = "<group>"; };
 		CE97018C2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherCardTableHeaderView.swift; sourceTree = "<group>"; };
+		CE97018E293918A5006C61BE /* WeatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApi.swift; sourceTree = "<group>"; };
+		CE970190293C8B1C006C61BE /* HourlyWeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE970192293C90FB006C61BE /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		CE970194293C95D7006C61BE /* DataStyleFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStyleFormatter.swift; sourceTree = "<group>"; };
+		CE970196293C9C2C006C61BE /* HourlyWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		CE970198293D02A7006C61BE /* RapidApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidApi.swift; sourceTree = "<group>"; };
+		CE97019A293D1574006C61BE /* AccuGeoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuGeoDataModel.swift; sourceTree = "<group>"; };
+		CE97019C293FA2E7006C61BE /* AccuWeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuWeatherDataModel.swift; sourceTree = "<group>"; };
+		CE97019E293FB2AA006C61BE /* AccuDayDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuDayDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9701A22940F808006C61BE /* Kingfisher in Frameworks */,
 				CE97017E293388AE006C61BE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				CE9701662933693C006C61BE /* Assets.xcassets */,
+				CE0F68032975B97D007B007F /* Rubik-Medium.ttf */,
+				CE97018E293918A5006C61BE /* WeatherApi.swift */,
 			);
 			path = Resourses;
 			sourceTree = "<group>";
@@ -116,6 +142,7 @@
 				CE97017F29339AC3006C61BE /* AddCityViewController.swift */,
 				CE97018729352911006C61BE /* WeatherCardView.swift */,
 				CE97018C2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift */,
+				CE0F68012975B20C007B007F /* StartupViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,6 +154,12 @@
 				CE97018129350E6D006C61BE /* GeoDataModel.swift */,
 				CE97018329350E99006C61BE /* HourlyDataModel.swift */,
 				CE97018529350EA8006C61BE /* DailyDataModel.swift */,
+				CE970192293C90FB006C61BE /* DateFormatter.swift */,
+				CE970194293C95D7006C61BE /* DataStyleFormatter.swift */,
+				CE970198293D02A7006C61BE /* RapidApi.swift */,
+				CE97019A293D1574006C61BE /* AccuGeoDataModel.swift */,
+				CE97019C293FA2E7006C61BE /* AccuWeatherDataModel.swift */,
+				CE97019E293FB2AA006C61BE /* AccuDayDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				CE97017A2933882D006C61BE /* CitiesTableViewCell.swift */,
+				CE970190293C8B1C006C61BE /* HourlyWeatherCollectionViewCell.swift */,
+				CE970196293C9C2C006C61BE /* HourlyWeatherTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -165,6 +200,7 @@
 			name = Weather;
 			packageProductDependencies = (
 				CE97017D293388AE006C61BE /* SnapKit */,
+				CE9701A12940F808006C61BE /* Kingfisher */,
 			);
 			productName = Weather;
 			productReference = CE9701572933693A006C61BE /* Weather.app */;
@@ -196,6 +232,7 @@
 			mainGroup = CE97014E2933693A006C61BE;
 			packageReferences = (
 				CE97017C293388AE006C61BE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CE9701A02940F808006C61BE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = CE9701582933693A006C61BE /* Products */;
 			projectDirPath = "";
@@ -211,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0F68042975B9A6007B007F /* Rubik-Medium.ttf in Resources */,
 				CE97016A2933693C006C61BE /* LaunchScreen.storyboard in Resources */,
 				CE9701672933693C006C61BE /* Assets.xcassets in Resources */,
 			);
@@ -225,18 +263,28 @@
 			files = (
 				CE97018629350EA8006C61BE /* DailyDataModel.swift in Sources */,
 				CE97018D2937D4C5006C61BE /* MainWeatherCardTableHeaderView.swift in Sources */,
+				CE97018F293918A5006C61BE /* WeatherApi.swift in Sources */,
+				CE970199293D02A7006C61BE /* RapidApi.swift in Sources */,
 				CE9701652933693A006C61BE /* Weather.xcdatamodeld in Sources */,
+				CE970197293C9C2C006C61BE /* HourlyWeatherTableViewCell.swift in Sources */,
+				CE97019D293FA2E7006C61BE /* AccuWeatherDataModel.swift in Sources */,
 				CE9701782933811A006C61BE /* DayDataModel.swift in Sources */,
 				CE97015F2933693A006C61BE /* ViewController.swift in Sources */,
 				CE97017429336C26006C61BE /* GeneralViewController.swift in Sources */,
+				CE970193293C90FB006C61BE /* DateFormatter.swift in Sources */,
 				CE97018B2935399A006C61BE /* CustomClasses.swift in Sources */,
 				CE97015B2933693A006C61BE /* AppDelegate.swift in Sources */,
+				CE97019B293D1575006C61BE /* AccuGeoDataModel.swift in Sources */,
+				CE970195293C95D7006C61BE /* DataStyleFormatter.swift in Sources */,
 				CE97015D2933693A006C61BE /* SceneDelegate.swift in Sources */,
+				CE0F68022975B20C007B007F /* StartupViewController.swift in Sources */,
+				CE970191293C8B1C006C61BE /* HourlyWeatherCollectionViewCell.swift in Sources */,
 				CE97018429350E99006C61BE /* HourlyDataModel.swift in Sources */,
 				CE97018229350E6D006C61BE /* GeoDataModel.swift in Sources */,
 				CE97017B2933882D006C61BE /* CitiesTableViewCell.swift in Sources */,
 				CE97018829352911006C61BE /* WeatherCardView.swift in Sources */,
 				CE97018029339AC3006C61BE /* AddCityViewController.swift in Sources */,
+				CE97019F293FB2AA006C61BE /* AccuDayDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +426,7 @@
 				DEVELOPMENT_TEAM = TDYKKCNQAF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Weather;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -405,6 +454,7 @@
 				DEVELOPMENT_TEAM = TDYKKCNQAF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Weather;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -454,6 +504,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		CE9701A02940F808006C61BE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 7.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -461,6 +519,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE97017C293388AE006C61BE /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		CE9701A12940F808006C61BE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE9701A02940F808006C61BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 

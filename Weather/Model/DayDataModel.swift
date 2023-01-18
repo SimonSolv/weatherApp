@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum WeatherDataType {
+    case cityWeather
+    case dailyWeather16
+    case geo
+    case hourlyWeather
+}
+
 struct CityWeather: Codable {
     var coord: Coord?
     var weather: [Weather]?
@@ -74,119 +81,131 @@ struct Main: Codable {
     var grnd_level: Int?
 }
 
-struct Wind: Codable {
-  var speed: Float?
-  var deg: Float?
-  var gust: Float?
-}
+//struct Wind: Codable {
+//  var speed: Float?
+//  var deg: Float?
+//  var gust: Float?
+//}
 
 struct Clouds: Codable {
   var all: Int?
 }
 
-func requestDayWeather(city: City, completion: ((_ weather: CityWeather? ) -> Void)?) {
-    let components = dayWeatherurlComponents(city: city)
-    let url = components.url
-    let session = URLSession(configuration: .default)
-    let task = session.dataTask(with: url!, completionHandler: { data, responce, error in
-        if let error = error {
-            print(error.localizedDescription)
-            completion?(nil)
-            return
-        }
-        
-        if (responce as! HTTPURLResponse).statusCode != 200 {
-            print ("StstusCode = \((responce as! HTTPURLResponse).statusCode)")
-            completion?(nil)
-            return
-        }
-        
-        guard let data = data else {
-            print("No data received")
-            completion?(nil)
-            return
-        }
-        
-        do {
-            let answer = try JSONDecoder().decode(CityWeather.self, from: data)
-            completion?(answer)
-            return
-        } catch {
-            print(error)
-        }
-    })
-    task.resume()
-}
+//func decodeDataFromJson(data: Data?, type: WeatherDataType, completion: ((_ decodeResult: Any?) -> Void)?) {
+//    guard data != nil else {
+//        print("No data received")
+//        completion?(nil)
+//        return
+//    }
+//    switch type {
+//    case .cityWeather:
+//        do {
+//            let answer = try JSONDecoder().decode(CityWeather.self, from: data!)
+//            completion?(answer)
+//            return
+//        } catch {
+//            print(error)
+//        }
+//    case .geo:
+//        do {
+//            let answer = try JSONDecoder().decode([City].self, from: data!)
+//            completion?(answer)
+//            return
+//        } catch {
+//            print(error)
+//        }
+//    case .dailyWeather16:
+//        do {
+//            let answer = try JSONDecoder().decode(CityWeather.self, from: data!)
+//            completion?(answer)
+//            return
+//        } catch {
+//            print(error)
+//        }
+//    case .hourlyWeather:
+//        do {
+//            let answer = try JSONDecoder().decode(HourlyWeather.self, from: data!)
+//            completion?(answer)
+//            return
+//        } catch {
+//            print(error)
+//        }
+//    }
+//}
+//
+//func requestWeatherData(city: City, type: WeatherDataType, completion: ((_ answer: Any?) -> Void)?) {
+//    let components = dayWeatherUrlComponents(city: city)
+//    let url = components.url
+//    let session = URLSession(configuration: .default)
+//    let task = session.dataTask(with: url!, completionHandler: { data, responce, error in
+//        if let error = error {
+//            print(error.localizedDescription)
+//            completion?(nil)
+//            return
+//        }
+//
+//        if (responce as! HTTPURLResponse).statusCode != 200 {
+//            print ("StstusCode = \((responce as! HTTPURLResponse).statusCode)")
+//            completion?(nil)
+//            return
+//        }
+//
+//        guard let data = data else {
+//            print("No data received")
+//            completion?(nil)
+//            return
+//        }
+//
+//        do {
+//            var answer: Any? = nil
+//            decodeDataFromJson(data: data, type: type) { result in
+//                answer = result
+//            }
+//            completion?(answer)
+//            return
+//        } catch {
+//            print(error)
+//        }
+//
+//    })
+//    task.resume()
+//}
 
-private func dayWeatherurlComponents(city: City) -> URLComponents {
-    var urlComponents = URLComponents()
-    urlComponents.scheme = "https"
-    urlComponents.host = "api.openweathermap.org"
-    urlComponents.path = "/data/2.5/weather"
-    urlComponents.queryItems = [
-        URLQueryItem(name: "lat", value: "\(city.lat)"),
-        URLQueryItem(name: "lon", value: "\(city.lon)"),
-        URLQueryItem(name: "appid", value: "813fe141065e9cb880c0c124702b622b"),
-        URLQueryItem(name: "units", value: "metric"),
-        URLQueryItem(name: "lang", value: "ru"),
-    ]
-    return urlComponents
-}
-/*
- 
- https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=813fe141065e9cb880c0c124702b622b
- 
- https://api.openweathermap.org/data/2.5/weather?q=moscow&appid=813fe141065e9cb880c0c124702b622b
- 
- https://api.openweathermap.org/data/2.5/weather?lat=55.75&lon=37.61&appid=813fe141065e9cb880c0c124702b622b&units=metric&lang=ru */
 
-/*
- 
- {
-   "coord": {
-     "lon": 37.61,
-     "lat": 55.75
-   },
-   "weather": [
-     {
-       "id": 804,
-       "main": "Clouds",
-       "description": "пасмурно",
-       "icon": "04n"
-     }
-   ],
-   "base": "stations",
-   "main": {
-     "temp": -3.73,
-     "feels_like": -8.57,
-     "temp_min": -4.69,
-     "temp_max": -2.64,
-     "pressure": 1037,
-     "humidity": 96,
-     "sea_level": 1037,
-     "grnd_level": 1019
-   },
-   "visibility": 1052,
-   "wind": {
-     "speed": 3.64,
-     "deg": 90,
-     "gust": 9.4
-   },
-   "clouds": {
-     "all": 100
-   },
-   "dt": 1669575152,
-   "sys": {
-     "type": 2,
-     "id": 2000314,
-     "country": "RU",
-     "sunrise": 1669526865,
-     "sunset": 1669554411
-   },
-   "timezone": 10800,
-   "id": 524901,
-   "name": "Москва",
-   "cod": 200
- }
- 
- */
+
+//func requestDayWeather(city: City, completion: ((_ weather: CityWeather? ) -> Void)?) {
+//    let components = dayWeatherUrlComponents(city: city)
+//    let url = components.url
+//    let session = URLSession(configuration: .default)
+//    let task = session.dataTask(with: url!, completionHandler: { data, responce, error in
+//        if let error = error {
+//            print(error.localizedDescription)
+//            completion?(nil)
+//            return
+//        }
+//
+//        if (responce as! HTTPURLResponse).statusCode != 200 {
+//            print ("StstusCode = \((responce as! HTTPURLResponse).statusCode)")
+//            completion?(nil)
+//            return
+//        }
+//
+//        guard let data = data else {
+//            print("No data received")
+//            completion?(nil)
+//            return
+//        }
+//
+//        do {
+//            let answer = try JSONDecoder().decode(CityWeather.self, from: data)
+//            completion?(answer)
+//            return
+//        } catch {
+//            print(error)
+//        }
+//    })
+//    task.resume()
+//}
+
+
+

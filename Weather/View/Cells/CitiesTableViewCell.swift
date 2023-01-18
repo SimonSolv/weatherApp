@@ -13,36 +13,23 @@ class CitiesTableViewCell: UITableViewCell {
     
     var city: City? {
         didSet {
-            self.cityNameLabel.text = city!.name + " " + "\(city!.lon)" + " " + "\(city!.lat)"
-            self.cityCountryLabel.text = city?.country
+            self.cityNameLabel.text = city!.LocalizedName
+            self.cityCountryLabel.text = city!.Country.LocalizedName
         }
     }
     
     lazy var cityNameLabel: UILabel = {
        let label = UILabel()
-        label.textColor = UIColor.black
+        label.textColor = UIColor.systemGray
         label.font = .boldSystemFont(ofSize: 24)
         return label
     }()
     
-    lazy var lonLabel: UILabel = {
-       let label = UILabel()
-        label.textColor = UIColor.black
-        label.font = .boldSystemFont(ofSize: 24)
-        return label
-    }()
-    
-    lazy var latLabel: UILabel = {
-       let label = UILabel()
-        label.textColor = UIColor.black
-        label.font = .boldSystemFont(ofSize: 24)
-        return label
-    }()
     
     lazy var cityCountryLabel: UILabel = {
        let label = UILabel()
-        label.textColor = UIColor.black
-        label.font = .boldSystemFont(ofSize: 24)
+        label.textColor = UIColor.systemGray4
+        label.font = .systemFont(ofSize: 20)
         return label
     }()
 
@@ -75,17 +62,17 @@ class CitiesTableViewCell: UITableViewCell {
     
     func setupConstraints() {
         cityNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(snp.top)
-            make.bottom.equalTo(snp.bottom)
-            make.leading.equalTo(snp.leading)
-            make.trailing.equalTo(snp.trailing)
+            make.top.equalTo(snp.top).offset(3)
+            make.bottom.equalTo(snp.bottom).offset(-3)
+            make.leading.equalTo(snp.leading).offset(10)
+            make.trailing.equalTo(snp.trailing).offset(-50)
         }
         
         cityCountryLabel.snp.makeConstraints { (make) in
             make.top.equalTo(snp.top)
             make.bottom.equalTo(snp.bottom)
-            make.width.equalTo(20)
-            make.trailing.equalTo(snp.trailing)
+        //    make.width.equalTo()
+            make.trailing.equalTo(snp.trailing).offset(-5)
         }
     }
 

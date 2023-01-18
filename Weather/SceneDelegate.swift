@@ -17,7 +17,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
-        let controller = UINavigationController(rootViewController: GeneralViewController())
+        let status = isFirstLaunched()
+        var controller: UINavigationController?
+        if status == true {
+            let host = GeneralViewController()
+            let child = StartupViewController()
+            child.completion = {[weak self] newLocation in
+                host.currentLocation = newLocation
+                host.tableView.reloadData()
+                host.checkCity()
+            }
+            controller = UINavigationController(rootViewController: host)
+            controller?.pushViewController(child, animated: false)
+        } else {
+            controller = UINavigationController(rootViewController: GeneralViewController())
+        }
+        
+        
+      //  let controller = UINavigationController(rootViewController: GeneralViewController())
 
         window?.rootViewController = controller
     }
@@ -51,6 +68,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
+    private func isFirstLaunched() -> Bool {
+        return true
     }
 
 

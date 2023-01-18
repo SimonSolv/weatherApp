@@ -12,7 +12,7 @@ class MainWeatherCardTableHeaderView: UITableViewHeaderFooterView {
 
     var header = WeatherCardView()
     
-    var weather: CityWeather?
+    var weather: CurrentWeather?
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -29,11 +29,12 @@ class MainWeatherCardTableHeaderView: UITableViewHeaderFooterView {
     
     private func setupViews() {
         contentView.addSubview(header)
+        contentView.backgroundColor = .systemBackground
         let constraints = [
-            header.topAnchor.constraint(equalTo: contentView.topAnchor),
-            header.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            header.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            header.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+            header.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            header.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            header.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            header.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16)
         ]
         NSLayoutConstraint.activate(constraints)
     }
